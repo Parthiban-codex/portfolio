@@ -1,0 +1,39 @@
+</section>
+<section id="Education">
+<div class="container">
+<div class="section-title">
+<h2>
+Education
+</h2>
+<p>
+Learning based practical projectsgit 
+</p>
+</div>
+<div class="grid-3">
+<div class="glass card">
+<h3>
+Periyar arts college 
+</h3>
+<p>
+Bachelor of computer application
+</p>
+<br>
+<span>
+8.34/10/00 
+</span>
+</div>
+
+<div class="grid-3">
+<div class="glass card">
+<h3>
+Rajiv gandhi college of engineering and technology 
+</h3>
+<p>
+Master of computer application
+</p>
+<br>
+<span>
+8.34/10/00 
+</span>
+</div>
+</section>
