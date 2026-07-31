@@ -1,203 +1,579 @@
-<script>
+/* =====================================================
+   PARTHIBAN PORTFOLIO SCRIPT
+===================================================== */
 
-/* Typing Animation */
 
-const words=[
-"Frontend Developer",
-"UI Designer",
-"JavaScript Developer",
-"Creative Coder"
+/* =========================
+      TYPING ANIMATION
+========================= */
+
+
+const words = [
+
+    "Cloud Engineer",
+
+    "AWS Enthusiast",
+
+    "Data Engineering Learner",
+
+    "Python Developer",
+
+    "Linux Explorer"
+
 ];
 
-let wordIndex=0;
-let charIndex=0;
-let deleting=false;
 
-const typing=document.getElementById("typing");
+let wordIndex = 0;
+
+let charIndex = 0;
+
+let deleting = false;
+
+
+
+const typing = document.getElementById("typing");
+
+
 
 function typeEffect(){
 
-let current=words[wordIndex];
 
-if(!deleting){
+    if(!typing) return;
 
-typing.textContent=current.substring(0,charIndex++);
 
-if(charIndex>current.length){
 
-deleting=true;
+    const current = words[wordIndex];
 
-setTimeout(typeEffect,1200);
 
-return;
+
+    if(!deleting){
+
+
+        typing.textContent =
+        current.substring(0,charIndex++);
+
+
+
+        if(charIndex > current.length){
+
+
+            deleting = true;
+
+
+            setTimeout(typeEffect,1200);
+
+
+            return;
+
+
+        }
+
+
+
+    }
+    else{
+
+
+        typing.textContent =
+        current.substring(0,charIndex--);
+
+
+
+        if(charIndex < 0){
+
+
+            deleting = false;
+
+
+            wordIndex++;
+
+
+
+            if(wordIndex >= words.length){
+
+                wordIndex = 0;
+
+            }
+
+
+        }
+
+
+    }
+
+
+
+    setTimeout(
+
+        typeEffect,
+
+        deleting ? 50 : 120
+
+    );
+
 
 }
 
-}else{
 
-typing.textContent=current.substring(0,charIndex--);
-
-if(charIndex<0){
-
-deleting=false;
-
-wordIndex++;
-
-if(wordIndex>=words.length)
-wordIndex=0;
-
-}
-
-}
-
-setTimeout(typeEffect,deleting?50:120);
-
-}
 
 typeEffect();
 
-/* Contact Form */
 
-document.getElementById("contactForm").addEventListener("submit",function(e){
 
-e.preventDefault();
 
-alert("Thank you! Your message has been sent.");
 
-this.reset();
+
+
+
+/* =========================
+        MOBILE MENU
+========================= */
+
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+
+if(menuBtn){
+
+
+menuBtn.addEventListener(
+"click",
+()=>{
+
+
+navLinks.classList.toggle(
+"active"
+);
+
 
 });
 
-/* Scroll Top */
-
-const topBtn=document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>400){
-
-topBtn.style.display="block";
-
-}else{
-
-topBtn.style.display="none";
 
 }
 
+
+
+
+
+
+
+
+/* =========================
+        THEME TOGGLE
+========================= */
+
+
+const themeBtn =
+document.getElementById("themeToggle");
+
+
+
+if(themeBtn){
+
+
+themeBtn.addEventListener(
+"click",
+()=>{
+
+
+document.body.classList.toggle(
+"dark"
+);
+
+
+
+localStorage.setItem(
+
+"theme",
+
+document.body.classList.contains("dark")
+?
+"dark"
+:
+"light"
+
+);
+
+
 });
 
+
+}
+
+
+
+
+if(
+localStorage.getItem("theme")
+==="dark"
+){
+
+
+document.body.classList.add("dark");
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+        CONTACT FORM
+========================= */
+
+
+const contactForm =
+document.getElementById("contactForm");
+
+
+
+if(contactForm){
+
+
+contactForm.addEventListener(
+
+"submit",
+
+function(e){
+
+
+e.preventDefault();
+
+
+
+const status =
+document.getElementById(
+"formStatus"
+);
+
+
+
+if(status){
+
+
+status.innerHTML =
+"✅ Message sent successfully!";
+
+
+}
+
+
+
+this.reset();
+
+
+
+setTimeout(()=>{
+
+
+if(status){
+
+status.innerHTML="";
+
+}
+
+
+},3000);
+
+
+
+}
+
+);
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+        SCROLL TOP BUTTON
+========================= */
+
+
+const topBtn =
+document.getElementById("topBtn");
+
+
+
+if(topBtn){
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+if(window.scrollY > 400){
+
+
+topBtn.style.display="block";
+
+
+}
+
+else{
+
+
+topBtn.style.display="none";
+
+
+}
+
+
+});
+
+
 topBtn.onclick=()=>{
+
 
 window.scrollTo({
 
 top:0,
+
 behavior:"smooth"
 
 });
 
+
 };
 
-/* Scroll Reveal */
 
-const observer=new IntersectionObserver(entries=>{
+}
+
+
+
+
+
+
+
+
+/* =========================
+        SCROLL REVEAL
+========================= */
+
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
 
 entries.forEach(entry=>{
 
+
 if(entry.isIntersecting){
 
-entry.target.animate([
 
-{
-opacity:0,
-transform:"translateY(60px)"
+entry.target.classList.add(
+"show"
+);
+
+
+}
+
+
+});
+
+
 },
+
 {
-opacity:1,
-transform:"translateY(0)"
-}
 
-],{
-
-duration:800,
-fill:"forwards"
-
-});
+threshold:.15
 
 }
 
-});
+);
+
+
+
+
+document
+.querySelectorAll(
+"section,.glass"
+)
+.forEach(element=>{
+
+
+observer.observe(element);
+
 
 });
 
-document.querySelectorAll("section").forEach(sec=>{
 
-observer.observe(sec);
 
-});
 
-/* Skill Animation */
 
-const bars=document.querySelectorAll(".progress");
 
-const skillObserver=new IntersectionObserver(entries=>{
+
+
+/* =========================
+        SKILL BAR ANIMATION
+========================= */
+
+
+const bars =
+document.querySelectorAll(
+".skill-bar span"
+);
+
+
+
+const skillObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
 
 entries.forEach(entry=>{
 
+
 if(entry.isIntersecting){
 
-let target=entry.target.getAttribute("style").match(/\d+/);
 
-entry.target.style.width=target+"%";
+const width =
+entry.target.style.width;
+
+
+
+entry.target.style.width="0";
+
+
+
+setTimeout(()=>{
+
+
+entry.target.style.width=width;
+
+
+},200);
+
+
 
 }
 
-});
 
 });
+
+
+}
+
+);
+
+
+
+
 
 bars.forEach(bar=>{
 
-bar.style.width="0";
 
 skillObserver.observe(bar);
 
+
 });
 
-/* Active Menu */
 
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("nav ul li a");
 
-window.addEventListener("scroll",()=>{
+
+
+
+
+
+/* =========================
+        ACTIVE NAVIGATION
+========================= */
+
+
+const sections =
+document.querySelectorAll(
+"section"
+);
+
+
+
+const links =
+document.querySelectorAll(
+".nav-links a"
+);
+
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
 
 let current="";
 
-sections.forEach(sec=>{
 
-const top=window.scrollY;
-const offset=sec.offsetTop-200;
-const height=sec.offsetHeight;
 
-if(top>=offset){
+sections.forEach(section=>{
 
-current=sec.getAttribute("id");
 
-}
+const sectionTop =
+section.offsetTop - 150;
 
-});
 
-navLinks.forEach(link=>{
 
-link.classList.remove("active");
+if(
+window.scrollY >= sectionTop
+){
 
-if(link.getAttribute("href")==="#"+current){
 
-link.classList.add("active");
+current =
+section.getAttribute("id");
+
 
 }
 
-});
 
 });
 
-</script>
+
+
+
+links.forEach(link=>{
+
+
+link.classList.remove(
+"active"
+);
+
+
+
+if(
+link.getAttribute("href")
+===
+"#"+current
+){
+
+
+link.classList.add(
+"active"
+);
+
+
+}
+
+
+
+});
+
+
+});
