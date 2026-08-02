@@ -1,357 +1,190 @@
-/* =====================================================
-   PARTHIBAN PORTFOLIO SCRIPT
-===================================================== */
+/*====================================================
+    PARTHIBAN PORTFOLIO JAVASCRIPT
+====================================================*/
 
 
-/* =========================
-      TYPING ANIMATION
-========================= */
+//================ MOBILE NAVBAR =================//
 
+const menuBtn = document.getElementById("menuBtn");
 
-const words = [
-
-    "Cloud Engineer",
-
-    "AWS Enthusiast",
-
-    "Data Engineering Learner",
-
-    "Python Developer",
-
-    "Linux Explorer"
-
-];
-
-
-let wordIndex = 0;
-
-let charIndex = 0;
-
-let deleting = false;
-
-
-
-const typing = document.getElementById("typing");
-
-
-
-function typeEffect(){
-
-
-    if(!typing) return;
-
-
-
-    const current = words[wordIndex];
-
-
-
-    if(!deleting){
-
-
-        typing.textContent =
-        current.substring(0,charIndex++);
-
-
-
-        if(charIndex > current.length){
-
-
-            deleting = true;
-
-
-            setTimeout(typeEffect,1200);
-
-
-            return;
-
-
-        }
-
-
-
-    }
-    else{
-
-
-        typing.textContent =
-        current.substring(0,charIndex--);
-
-
-
-        if(charIndex < 0){
-
-
-            deleting = false;
-
-
-            wordIndex++;
-
-
-
-            if(wordIndex >= words.length){
-
-                wordIndex = 0;
-
-            }
-
-
-        }
-
-
-    }
-
-
-
-    setTimeout(
-
-        typeEffect,
-
-        deleting ? 50 : 120
-
-    );
-
-
-}
-
-
-
-typeEffect();
-
-
-
-
-
-
-
-
-/* =========================
-        MOBILE MENU
-========================= */
-
-
-const menuBtn =
-document.getElementById("menuBtn");
-
-
-const navLinks =
-document.getElementById("navLinks");
-
+const navLinks = document.querySelector(".nav-links");
 
 
 if(menuBtn){
 
+    menuBtn.addEventListener("click",()=>{
 
-menuBtn.addEventListener(
-"click",
-()=>{
+        navLinks.classList.toggle("active");
+
+        const icon = menuBtn.querySelector("i");
 
 
-navLinks.classList.toggle(
-"active"
-);
+        if(navLinks.classList.contains("active")){
+
+            icon.classList.remove("fa-bars");
+
+            icon.classList.add("fa-xmark");
+
+        }
+
+        else{
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+
+    });
+
+}
+
+
+
+// Close menu after clicking link
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+
+    link.addEventListener("click",()=>{
+
+
+        navLinks.classList.remove("active");
+
+
+        if(menuBtn){
+
+            const icon = menuBtn.querySelector("i");
+
+
+            icon.classList.remove("fa-xmark");
+
+            icon.classList.add("fa-bars");
+
+        }
+
+
+    });
 
 
 });
 
 
-}
 
 
 
+//================ SCROLL REVEAL =================//
+
+
+const revealElements = document.querySelectorAll(
+
+".skill-card, .project-card, .service-card, .contact-card, .contact-form"
+
+);
 
 
 
+const revealOnScroll = ()=>{
 
 
-/* =========================
-        THEME TOGGLE
-========================= */
+    revealElements.forEach(element=>{
 
 
-const themeBtn =
-document.getElementById("themeToggle");
+        const position = element.getBoundingClientRect().top;
+
+
+        const windowHeight = window.innerHeight;
 
 
 
-if(themeBtn){
+        if(position < windowHeight - 80){
 
 
-themeBtn.addEventListener(
-"click",
-()=>{
+            element.classList.add("fade-up");
 
 
-document.body.classList.toggle(
-"dark"
+            setTimeout(()=>{
+
+                element.classList.add("active");
+
+            },100);
+
+
+        }
+
+
+
+    });
+
+
+
+};
+
+
+
+window.addEventListener(
+
+"scroll",
+
+revealOnScroll
+
 );
 
 
+revealOnScroll();
 
-localStorage.setItem(
 
-"theme",
 
-document.body.classList.contains("dark")
-?
-"dark"
-:
-"light"
 
-);
+//================ BACK TO TOP =================//
+
+
+const topBtn = document.getElementById("topBtn");
+
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 500){
+
+
+        topBtn.classList.add("show");
+
+
+    }
+
+    else{
+
+
+        topBtn.classList.remove("show");
+
+
+    }
 
 
 });
 
-
-}
-
-
-
-
-if(
-localStorage.getItem("theme")
-==="dark"
-){
-
-
-document.body.classList.add("dark");
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-        CONTACT FORM
-========================= */
-
-
-const contactForm =
-document.getElementById("contactForm");
-
-
-
-if(contactForm){
-
-
-contactForm.addEventListener(
-
-"submit",
-
-function(e){
-
-
-e.preventDefault();
-
-
-
-const status =
-document.getElementById(
-"formStatus"
-);
-
-
-
-if(status){
-
-
-status.innerHTML =
-"✅ Message sent successfully!";
-
-
-}
-
-
-
-this.reset();
-
-
-
-setTimeout(()=>{
-
-
-if(status){
-
-status.innerHTML="";
-
-}
-
-
-},3000);
-
-
-
-}
-
-);
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-        SCROLL TOP BUTTON
-========================= */
-
-
-const topBtn =
-document.getElementById("topBtn");
 
 
 
 if(topBtn){
 
 
-window.addEventListener(
-"scroll",
-()=>{
+    topBtn.addEventListener("click",()=>{
 
 
-if(window.scrollY > 400){
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
 
 
-topBtn.style.display="block";
-
-
-}
-
-else{
-
-
-topBtn.style.display="none";
-
-
-}
-
-
-});
-
-
-topBtn.onclick=()=>{
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-
-};
+    });
 
 
 }
@@ -360,58 +193,56 @@ behavior:"smooth"
 
 
 
+//================ ACTIVE NAV LINK =================//
+
+
+const sections = document.querySelectorAll("section");
+
+
+const navItems = document.querySelectorAll(".nav-links a");
 
 
 
-/* =========================
-        SCROLL REVEAL
-========================= */
+window.addEventListener("scroll",()=>{
 
 
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
+    let current = "";
 
 
-entries.forEach(entry=>{
+    sections.forEach(section=>{
 
 
-if(entry.isIntersecting){
+        const sectionTop = section.offsetTop - 150;
 
 
-entry.target.classList.add(
-"show"
-);
+        if(window.scrollY >= sectionTop){
+
+            current = section.getAttribute("id");
+
+        }
 
 
-}
-
-
-});
-
-
-},
-
-{
-
-threshold:.15
-
-}
-
-);
+    });
 
 
 
-
-document
-.querySelectorAll(
-"section,.glass"
-)
-.forEach(element=>{
+    navItems.forEach(link=>{
 
 
-observer.observe(element);
+        link.classList.remove("active");
+
+
+        if(link.getAttribute("href") === "#"+current){
+
+
+            link.classList.add("active");
+
+
+        }
+
+
+    });
+
 
 
 });
@@ -420,160 +251,115 @@ observer.observe(element);
 
 
 
+//================ SERVICE REQUEST FORM =================//
+
+
+const serviceForm = document.getElementById("serviceForm");
 
 
 
-/* =========================
-        SKILL BAR ANIMATION
-========================= */
+if(serviceForm){
 
 
-const bars =
+serviceForm.addEventListener("submit",(event)=>{
+
+
+    event.preventDefault();
+
+
+
+    const button = serviceForm.querySelector("button");
+
+
+
+    button.innerHTML = 
+    '<i class="fa-solid fa-check"></i> Request Sent';
+
+
+
+    button.style.background="#16a34a";
+
+
+
+    setTimeout(()=>{
+
+
+        button.innerHTML =
+
+        '<i class="fa-solid fa-paper-plane"></i> Send Request';
+
+
+        button.style.background="";
+
+        serviceForm.reset();
+
+
+
+    },3000);
+
+
+
+});
+
+
+}
+
+
+
+
+
+//================ BUTTON PRESS EFFECT =================//
+
+
 document.querySelectorAll(
-".skill-bar span"
-);
+
+"button, a"
+
+).forEach(item=>{
+
+
+    item.addEventListener("mousedown",()=>{
+
+
+        item.style.transform="scale(.96)";
+
+
+    });
 
 
 
-const skillObserver =
-new IntersectionObserver(
-
-(entries)=>{
+    item.addEventListener("mouseup",()=>{
 
 
-entries.forEach(entry=>{
+        item.style.transform="";
 
 
-if(entry.isIntersecting){
-
-
-const width =
-entry.target.style.width;
+    });
 
 
 
-entry.target.style.width="0";
+});
 
 
 
-setTimeout(()=>{
 
 
-entry.target.style.width=width;
+//================ CURRENT YEAR FOOTER =================//
 
 
-},200);
+const year = new Date().getFullYear();
 
+
+const copyright = document.querySelector(".copyright");
+
+
+
+if(copyright){
+
+
+    copyright.innerHTML =
+
+    `© ${year} Parthiban. All Rights Reserved.`;
 
 
 }
-
-
-});
-
-
-}
-
-);
-
-
-
-
-
-bars.forEach(bar=>{
-
-
-skillObserver.observe(bar);
-
-
-});
-
-
-
-
-
-
-
-
-/* =========================
-        ACTIVE NAVIGATION
-========================= */
-
-
-const sections =
-document.querySelectorAll(
-"section"
-);
-
-
-
-const links =
-document.querySelectorAll(
-".nav-links a"
-);
-
-
-
-window.addEventListener(
-"scroll",
-()=>{
-
-
-let current="";
-
-
-
-sections.forEach(section=>{
-
-
-const sectionTop =
-section.offsetTop - 150;
-
-
-
-if(
-window.scrollY >= sectionTop
-){
-
-
-current =
-section.getAttribute("id");
-
-
-}
-
-
-});
-
-
-
-
-links.forEach(link=>{
-
-
-link.classList.remove(
-"active"
-);
-
-
-
-if(
-link.getAttribute("href")
-===
-"#"+current
-){
-
-
-link.classList.add(
-"active"
-);
-
-
-}
-
-
-
-});
-
-
-});

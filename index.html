@@ -1,874 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Parthiban | Cloud & Data Engineering</title>
 
-<meta name="description" content="Parthiban Cloud Data Engineering Portfolio">
+<meta name="description"
+content="Professional Portfolio of Parthiban - Cloud & Data Engineering Enthusiast">
 
+<meta name="keywords"
+content="Cloud Engineer, AWS, Linux, Python, SQL, Portfolio, Data Engineering">
 
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* =====================================================
-   BASIC RESET
-===================================================== */
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-
-/* =====================================================
-   COLOR SYSTEM
-   Change colors here only for future theme updates
-===================================================== */
-
-:root{
-
-    --primary:#0f766e;        /* Dark leaf green */
-    --secondary:#0284c7;      /* Sky blue */
-
-    --background:#f8fafc;
-
-    --text:#0f172a;
-
-    --muted:#64748b;
-
-    --card:#ffffff;
-
-    --border:#e2e8f0;
-
-}
-
-
-
-/* =====================================================
-   BODY
-===================================================== */
-
-body{
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-
-    background:var(--background);
-
-    color:var(--text);
-
-    line-height:1.6;
-
-}
-
-
-
-/* COMMON */
-
-a{
-
-    text-decoration:none;
-    color:inherit;
-
-}
-
-
-.container{
-
-    width:min(1100px,90%);
-    margin:auto;
-
-}
-
-
-
-/* =====================================================
-   GLASS CARD
-   Use class="glass" for new cards
-===================================================== */
-
-
-.glass{
-
-    background:
-    rgba(255,255,255,.75);
-
-    border:
-
-    1px solid var(--border);
-
-
-    backdrop-filter:blur(20px);
-
-
-    box-shadow:
-
-    0 10px 30px rgba(15,23,42,.08);
-
-
-    border-radius:25px;
-
-}
-
-
-
-/* =====================================================
-   NAVIGATION MODULE
-   Add new menu links here
-===================================================== */
-
-
-.navbar{
-
-    position:fixed;
-
-    top:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-
-    width:min(1050px,90%);
-
-    padding:15px 25px;
-
-    z-index:999;
-
-}
-
-
-
-.nav-content{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-
-
-.logo{
-
-    font-size:24px;
-
-    font-weight:800;
-
-}
-
-
-
-.logo span{
-
-    color:var(--secondary);
-
-}
-
-
-
-.nav-links{
-
-    display:flex;
-
-    gap:25px;
-
-}
-
-
-
-.nav-links a{
-
-    font-weight:600;
-
-    font-size:14px;
-
-}
-
-
-
-.nav-links a:hover{
-
-    color:var(--primary);
-
-}
-
-
-
-.menu-btn{
-
-    display:none;
-
-    background:none;
-
-    border:none;
-
-    font-size:25px;
-
-}
-
-
-
-
-
-/* =====================================================
-   HERO MODULE
-   Change your introduction here
-===================================================== */
-
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-
-
-.hero-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 400px;
-
-    gap:50px;
-
-    align-items:center;
-
-}
-
-
-
-.badge{
-
-    display:inline-block;
-
-    padding:8px 15px;
-
-    background:#e0f2fe;
-
-    color:#0369a1;
-
-    border-radius:30px;
-
-    font-size:14px;
-
-    font-weight:700;
-
-}
-
-
-
-.hero h1{
-
-    margin-top:20px;
-
-    font-size:70px;
-
-    line-height:1;
-
-}
-
-
-
-.hero h1 span{
-
-    color:var(--primary);
-
-}
-
-
-
-.hero p{
-
-    margin:25px 0;
-
-    color:var(--muted);
-
-    font-size:18px;
-
-    max-width:600px;
-
-}
-
-
-
-
-/* BUTTON MODULE */
-
-.btn{
-
-    display:inline-block;
-
-    padding:12px 25px;
-
-    border-radius:30px;
-
-    font-weight:700;
-
-    margin-right:10px;
-
-    cursor:pointer;
-
-}
-
-
-
-.btn-primary{
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-
-
-.btn-secondary{
-
-    background:#e0f2fe;
-
-    color:#0369a1;
-
-}
-
-
-
-.btn:hover{
-
-    opacity:.85;
-
-}
-
-
-
-
-/* PROFILE CARD */
-
-
-.profile{
-
-    padding:40px;
-
-    text-align:center;
-
-}
-
-
-
-.profile-img{
-
-    width:140px;
-
-    height:140px;
-
-    border-radius:50%;
-
-    margin:auto;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    font-size:55px;
-
-    font-weight:800;
-
-
-    background:#ccfbf1;
-
-    color:var(--primary);
-
-}
-
-
-
-.profile h2{
-
-    margin-top:20px;
-
-}
-
-
-
-.profile p{
-
-    color:var(--muted);
-
-}
-
-
-
-
-/* =====================================================
-   GENERAL SECTIONS
-===================================================== */
-
-
-section{
-
-    padding:90px 0;
-
-}
-
-
-
-.title{
-
-    text-align:center;
-
-    margin-bottom:40px;
-
-}
-
-
-
-.title h2{
-
-    font-size:40px;
-
-}
-
-
-
-.title p{
-
-    color:var(--muted);
-
-}
-/* =====================================================
-   CARD GRID SYSTEM
-===================================================== */
-
-
-.grid-4{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:20px;
-
-}
-
-
-
-.grid-3{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:25px;
-
-}
-
-
-
-.card{
-
-    padding:30px;
-
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-
-    0 20px 40px rgba(15,23,42,.12);
-
-}
-
-
-
-/* =====================================================
-   CONTACT MODULE STYLE
-===================================================== */
-
-
-.contact-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    .8fr 1.2fr;
-
-    gap:25px;
-
-}
-
-
-
-.contact-item{
-
-    margin:20px 0;
-
-}
-
-
-
-.contact-item strong{
-
-    display:block;
-
-}
-
-
-
-.contact-item span{
-
-    color:var(--muted);
-
-}
-
-
-
-/* FORM */
-
-
-.form-group{
-
-    margin-bottom:15px;
-
-}
-
-
-
-label{
-
-    display:block;
-
-    font-weight:700;
-
-    font-size:14px;
-
-    margin-bottom:5px;
-
-}
-
-
-
-input,
-select,
-textarea{
-
-
-    width:100%;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    border:1px solid var(--border);
-
-    background:white;
-
-    outline:none;
-
-}
-
-
-
-textarea{
-
-    height:120px;
-
-}
-
-
-
-.success{
-
-    display:none;
-
-    margin-top:15px;
-
-    color:var(--primary);
-
-    font-weight:700;
-
-}
-
-
-
-
-/* FOOTER */
-
-
-footer{
-
-    text-align:center;
-
-    padding:30px;
-
-    color:var(--muted);
-
-}
-
-
-
-
-/* =====================================================
-   RESPONSIVE DESIGN
-===================================================== */
-
-
-@media(max-width:850px){
-
-
-.hero-grid,
-.contact-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.hero h1{
-
-    font-size:50px;
-
-}
-
-
-
-.grid-4{
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-}
-
-
-
-.grid-3{
-
-    grid-template-columns:1fr;
-
-}
-
-
-
-.nav-links{
-
-    display:none;
-
-}
-
-
-
-.nav-links.show{
-
-    display:flex;
-
-    flex-direction:column;
-
-    position:absolute;
-
-    top:70px;
-
-    right:0;
-
-    background:white;
-
-    padding:20px;
-
-    border-radius:20px;
-
-}
-
-
-
-.menu-btn{
-
-    display:block;
-
-}
-
-
-
-}
-
-
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
 
+<!--================ NAVBAR ================-->
 
+<header>
 
-<!-- =====================================================
-     NAVIGATION MODULE
-     Add menu items here
-===================================================== -->
+<nav class="navbar">
 
+<a href="#" class="logo">
+<i class="fa-solid fa-cloud"></i>
+<span>Parthiban</span>
+</a>
 
-<nav class="navbar glass">
+<ul class="nav-links">
 
-<div class="nav-content">
+<li><a href="#home">Home</a></li>
 
+<li><a href="#skills">Skills</a></li>
 
-<div class="logo">
+<li><a href="#projects">Projects</a></li>
 
-Parthiban<span>.</span>
+<li><a href="#services">Services</a></li>
 
-</div>
+<li><a href="#contact">Contact</a></li>
 
+</ul>
 
-<button class="menu-btn"
-onclick="toggleMenu()">
+<div class="nav-btns">
 
-☰
+<a href="#contact" class="hire-btn">
+Hire Me
+</a>
+
+<button id="menuBtn">
+
+<i class="fa-solid fa-bars"></i>
 
 </button>
-
-
-<div class="nav-links" id="navLinks">
-
-<a href="#about">About</a>
-
-<a href="#skills">Skills</a>
-
-<a href="#services">Services</a>
-
-<a href="#projects">Projects</a>
-
-<a href="#contact">Contact</a>
-
-</div>
-
 
 </div>
 
 </nav>
 
+</header>
 
+<!--================ HERO ================-->
 
+<section class="hero" id="home">
 
+<div class="hero-container">
 
+<!-- LEFT -->
 
+<div class="hero-content">
 
-<!-- =====================================================
-     HERO MODULE
-     Change your main introduction here
-===================================================== -->
+<span class="hero-tag">
 
+<i class="fa-solid fa-circle-check"></i>
 
-<section class="hero">
-
-
-<div class="container">
-
-
-<div class="hero-grid">
-
-
-
-<div>
-
-
-<span class="badge">
-
-☁️ Cloud & Data Engineering
+Available for Freelance
 
 </span>
-
-
 
 <h1>
 
-Building the
+Hi,
 
-<br>
+I'm
 
-<span>
-future with data.
-</span>
+<span>Parthiban</span>
 
 </h1>
 
+<h2>
 
+Cloud & Data Engineering Enthusiast
+
+</h2>
 
 <p>
 
-I am Parthiban, a Cloud and Data Engineering enthusiast
-focused on AWS, Linux, Python, SQL, automation and
-modern web solutions.
+Passionate about Cloud Computing, AWS, Linux,
+Python, SQL, Automation and modern web technologies.
+
+I enjoy building responsive websites, cloud-based
+solutions and scalable applications while continuously
+learning new technologies.
 
 </p>
 
-
-
-
-<a href="#projects"
-class="btn btn-primary">
-
-View Projects
-
-</a>
-
-
-
+<div class="hero-buttons">
 
 <a href="resume.pdf"
+
 download
-class="btn btn-secondary">
+
+class="primary-btn">
+
+<i class="fa-solid fa-download"></i>
 
 Download Resume
 
 </a>
 
+<a href="#contact"
 
+class="secondary-btn">
 
-</div>
+<i class="fa-solid fa-paper-plane"></i>
 
+Contact Me
 
-
-
-
-
-
-<div class="profile glass">
-
-
-<div class="profile-img">
-
-P
+</a>
 
 </div>
 
+<!-- Quick Info -->
 
+<div class="hero-stats">
+
+<div class="stat-card">
+
+<h3>15+</h3>
+
+<p>Projects</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>AWS</h3>
+
+<p>Cloud</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>Python</h3>
+
+<p>Automation</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>SQL</h3>
+
+<p>Database</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="hero-image">
+
+<div class="profile-card">
+
+<div class="profile-top">
+
+<div class="profile-image">
+
+<img src="images/profile.jpg"
+alt="Parthiban">
+
+</div>
 
 <h2>
 
@@ -876,7 +202,661 @@ Parthiban
 
 </h2>
 
+<p>
 
+Cloud & Data Engineering
+
+</p>
+
+</div>
+
+<div class="badges">
+
+<span>
+
+<i class="fa-brands fa-aws"></i>
+
+AWS
+
+</span>
+
+<span>
+
+<i class="fa-brands fa-linux"></i>
+
+Linux
+
+</span>
+
+<span>
+
+<i class="fa-brands fa-python"></i>
+
+Python
+
+</span>
+
+<span>
+
+<i class="fa-solid fa-database"></i>
+
+SQL
+
+</span>
+
+</div>
+
+<div class="profile-info">
+
+<div>
+
+<i class="fa-solid fa-location-dot"></i>
+
+Tamil Nadu, India
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Open for Opportunities
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-envelope"></i>
+
+parthiban@example.com
+
+</div>
+
+</div>
+
+<div class="social-links">
+
+<a href="#">
+
+<i class="fa-brands fa-github"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-phone"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ SKILLS STARTS IN PART 2 ================-->
+<!--================ SKILLS ================-->
+
+<section class="skills section" id="skills">
+
+<div class="section-title">
+<span>Technical Expertise</span>
+<h2>Skills</h2>
+<p>Technologies I use to build modern cloud and web solutions.</p>
+</div>
+
+<div class="skills-container">
+
+<div class="skill-card">
+<i class="fa-brands fa-aws"></i>
+<h3>AWS</h3>
+<p>EC2, S3, IAM, VPC, Cloud Basics</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-linux"></i>
+<h3>Linux</h3>
+<p>Ubuntu, Shell Commands, Server Administration</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-python"></i>
+<h3>Python</h3>
+<p>Automation, Scripting & Backend Fundamentals</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-solid fa-database"></i>
+<h3>SQL</h3>
+<p>Database Design, Queries & Data Management</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-html5"></i>
+<h3>HTML5</h3>
+<p>Semantic & SEO Friendly Structure</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-css3-alt"></i>
+<h3>CSS3</h3>
+<p>Responsive Layouts & Modern UI Design</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-js"></i>
+<h3>JavaScript</h3>
+<p>Interactive User Interfaces & DOM Manipulation</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-brands fa-git-alt"></i>
+<h3>Git & GitHub</h3>
+<p>Version Control & Collaboration</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-solid fa-network-wired"></i>
+<h3>Networking</h3>
+<p>DNS, HTTP, SSH, IP Addressing</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-solid fa-cloud"></i>
+<h3>Cloud Computing</h3>
+<p>Infrastructure & Deployment Fundamentals</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-solid fa-gears"></i>
+<h3>Automation</h3>
+<p>Workflow Automation Using Python</p>
+</div>
+
+<div class="skill-card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>Data Engineering</h3>
+<p>Data Processing & Pipeline Basics</p>
+</div>
+
+</div>
+
+</section>
+
+<!--================ PROJECTS ================-->
+
+<section class="projects section" id="projects">
+
+<div class="section-title">
+<span>My Work</span>
+<h2>Featured Projects</h2>
+<p>Some of the projects I've built.</p>
+</div>
+
+<div class="project-container">
+
+<!-- Project 1 -->
+
+<div class="project-card">
+
+<div class="project-image">
+<i class="fa-solid fa-cloud-sun-rain"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Weather Forecast Application</h3>
+
+<p>
+Responsive weather application with current weather,
+forecast, location detection and modern dashboard.
+</p>
+
+<div class="tech-stack">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Weather API</span>
+
+</div>
+
+<div class="project-buttons">
+
+<a href="#" class="live-btn">
+<i class="fa-solid fa-globe"></i>
+Live Demo
+</a>
+
+<a href="#" class="github-btn">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 2 -->
+
+<div class="project-card">
+
+<div class="project-image">
+<i class="fa-solid fa-server"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Cloud Monitoring Dashboard</h3>
+
+<p>
+Cloud monitoring dashboard using AWS, Linux and Python
+for server status and resource monitoring.
+</p>
+
+<div class="tech-stack">
+
+<span>AWS</span>
+<span>Linux</span>
+<span>Python</span>
+
+</div>
+
+<div class="project-buttons">
+
+<a href="#" class="live-btn">
+<i class="fa-solid fa-globe"></i>
+Live Demo
+</a>
+
+<a href="#" class="github-btn">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 3 -->
+
+<div class="project-card">
+
+<div class="project-image">
+<i class="fa-solid fa-laptop-code"></i>
+</div>
+
+<div class="project-content">
+
+<h3>Professional Portfolio</h3>
+
+<p>
+Personal portfolio built with responsive design,
+professional UI and smooth animations.
+</p>
+
+<div class="tech-stack">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+<div class="project-buttons">
+
+<a href="#" class="live-btn">
+<i class="fa-solid fa-globe"></i>
+Live Demo
+</a>
+
+<a href="#" class="github-btn">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ SERVICES ================-->
+
+<section class="services section" id="services">
+
+<div class="section-title">
+
+<span>What I Offer</span>
+
+<h2>Services</h2>
+
+<p>
+Professional services for students, freelancers and businesses.
+</p>
+
+</div>
+
+<div class="services-container">
+
+<!-- Service 1 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<i class="fa-solid fa-code"></i>
+
+</div>
+
+<h3>Static Website Development</h3>
+
+<p>
+
+Professional responsive websites for personal,
+business and portfolio requirements.
+
+</p>
+
+<ul>
+
+<li>Responsive Design</li>
+
+<li>Modern UI</li>
+
+<li>Fast Loading</li>
+
+<li>SEO Friendly</li>
+
+<li>Hosting Guidance</li>
+
+</ul>
+
+<a href="#contact" class="service-btn">
+
+Request Service
+
+</a>
+
+</div>
+
+<!-- Service 2 -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<i class="fa-solid fa-file-lines"></i>
+
+</div>
+
+<h3>ATS Friendly Resume Creation</h3>
+
+<p>
+
+Professional resumes optimized for Applicant
+Tracking Systems used by recruiters.
+
+</p>
+
+<ul>
+
+<li>ATS Optimized</li>
+
+<li>Professional Formatting</li>
+
+<li>Modern Templates</li>
+
+<li>Editable Files</li>
+
+<li>PDF Version</li>
+
+</ul>
+
+<a href="#contact" class="service-btn">
+
+Request Service
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!--================ CONTACT STARTS IN PART 3 ================-->
+<!--================ CONTACT ================-->
+
+<section class="contact section" id="contact">
+
+<div class="section-title">
+
+<span>Let's Connect</span>
+
+<h2>Contact Me</h2>
+
+<p>
+Have a project or need a service? Send your request below.
+</p>
+
+</div>
+
+<div class="contact-container">
+
+<!--================ LEFT ================-->
+
+<div class="contact-info">
+
+<h3>Contact Information</h3>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-envelope"></i>
+
+<div>
+<h4>Email</h4>
+<p>parthiban@example.com</p>
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-phone"></i>
+
+<div>
+<h4>Phone</h4>
+<p>+91 98765 43210</p>
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-brands fa-github"></i>
+
+<div>
+<h4>GitHub</h4>
+
+<a href="https://github.com/yourusername"
+target="_blank">
+
+github.com/yourusername
+
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-brands fa-linkedin"></i>
+
+<div>
+
+<h4>LinkedIn</h4>
+
+<a href="https://linkedin.com/in/yourusername"
+target="_blank">
+
+linkedin.com/in/yourusername
+
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<div>
+
+<h4>Location</h4>
+
+<p>Tamil Nadu, India</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!--================ RIGHT ================-->
+
+<div class="contact-form">
+
+<form action="https://formsubmit.co/parthiban.zy033@gmail.com" method="POST">
+
+<!-- FormSubmit Settings -->
+
+<input type="hidden" name="_subject" value="New Portfolio Service Request">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_template" value="table">
+
+
+<div class="input-group">
+
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required>
+
+</div>
+
+
+<div class="input-group">
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+required>
+
+</div>
+
+
+<div class="input-group">
+
+<input
+type="tel"
+name="phone"
+placeholder="Phone Number"
+required>
+
+</div>
+
+
+<div class="input-group">
+
+<select name="service" required>
+
+<option value="">
+Select Service
+</option>
+
+<option value="Static Website Development">
+Static Website Development
+</option>
+
+<option value="ATS Friendly Resume Creation">
+ATS Friendly Resume Creation
+</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<textarea
+
+name="message"
+
+rows="6"
+
+placeholder="Describe your project..."
+
+required>
+
+</textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Request
+
+</button>
+
+
+</form>
+
+<!--================ FOOTER ================-->
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-logo">
+
+<h2>Parthiban</h2>
 
 <p>
 
@@ -884,992 +864,73 @@ Cloud & Data Engineering Enthusiast
 
 </p>
 
+</div>
 
+<div class="footer-links">
+
+<a href="#home">Home</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#services">Services</a>
+
+<a href="#contact">Contact</a>
 
 </div>
 
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- =====================================================
-     ABOUT MODULE
-===================================================== -->
-
-
-<section id="about">
-
-
-<div class="container">
-
-
-<div class="title">
-
-<h2>
-
-About Me
-
-</h2>
-
-
-<p>
-
-Who I am
-
-</p>
-
-</div>
-
-
-
-<div class="card glass">
-
-
-<p>
-
-I am passionate about Cloud Computing,
-Data Engineering, Linux systems, Python,
-SQL and automation.
-
-I enjoy creating practical projects
-and learning new technologies.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =====================================================
-     SKILLS MODULE
-     Add new skills by copying skill-card
-===================================================== -->
-
-
-<section id="skills">
-
-
-<div class="container">
-
-
-<div class="title">
-
-<h2>
-
-Skills
-
-</h2>
-
-</div>
-
-
-
-
-<div class="grid-4">
-
-
-
-<div class="card glass">
-
-<h3>
-☁️ AWS
-</h3>
-
-<p>
-Cloud services and infrastructure
-</p>
-
-</div>
-
-
-
-
-<div class="card glass">
-
-<h3>
-🐧 Linux
-</h3>
-
-<p>
-System administration
-</p>
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-<h3>
-🐍 Python
-</h3>
-
-<p>
-Automation and scripting
-</p>
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-<h3>
-🗄️ SQL
-</h3>
-
-<p>
-Database management
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- =====================================================
-     SERVICES MODULE
-     Add new service cards here
-===================================================== -->
-
-
-<section id="services">
-
-
-<div class="container">
-
-
-<div class="title">
-
-<h2>
-
-Services
-
-</h2>
-
-<p>
-
-Available services
-
-</p>
-
-
-</div>
-
-
-
-<div class="grid-3">
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-🌐 Website Making
-
-</h3>
-
-
-<p>
-
-Static website development and hosting support.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-🎨 Logo Editing
-
-</h3>
-
-
-<p>
-
-Logo cleanup, resizing and improvements.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-📄 ATS Resume
-
-</h3>
-
-
-<p>
-
-Professional ATS friendly resume creation.
-
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- =====================================================
-     PROJECT MODULE
-     Copy project-card to add new projects
-===================================================== -->
-
-
-<section id="projects">
-
-
-<div class="container">
-
-
-<div class="title">
-
-<h2>
-
-Projects
-
-</h2>
-
-
-</div>
-
-
-
-<div class="grid-3">
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-Weather Application
-
-</h3>
-
-
-<p>
-
-Weather application using API and JavaScript.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-Cloud Monitoring Dashboard
-
-</h3>
-
-
-<p>
-
-AWS based infrastructure monitoring concept.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card glass">
-
-
-<h3>
-
-Data Automation
-
-</h3>
-
-
-<p>
-
-Python based data processing system.
-
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-<!-- =====================================================
-     CONTACT MODULE
-     Update your details here
-===================================================== -->
-
-
-<section id="contact">
-
-
-<div class="container">
-
-
-<div class="title">
-
-<h2>
-Contact
-</h2>
-
-<p>
-Let's work together
-</p>
-
-</div>
-
-
-
-<div class="contact-grid">
-
-
-
-
-
-<!-- LEFT CONTACT DETAILS -->
-
-<div class="card glass">
-
-
-<h3>
-Contact Information
-</h3>
-
-
-
-<div class="contact-item">
-
-<strong>
-📧 Email
-</strong>
-
-<span>
-<a href="mailto:parthiban.zy033@gmail.com">
-parthiban.zy033@gmail.com
-</a>
-</span>
-
-</div>
-
-
-
-
-
-<div class="contact-item">
-
-<strong>
-📱 Phone
-</strong>
-
-<span>
-
-<a href="tel:8015367140">
-8015367140
-</a>
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="contact-item">
-
-<strong>
-💻 GitHub
-</strong>
-
-<span>
-
-<a href="https://github.com/Parthiban-codex"
-target="_blank">
-
-github.com/Parthiban-codex
-
-</a>
-
-</span>
-
-</div>
-
-
-
-
-
-<div class="contact-item">
-
-<strong>
-💼 Naukri
-</strong>
-
-<span>
+<div class="footer-social">
 
 <a href="#">
 
-Add Your Naukri Link
+<i class="fa-brands fa-github"></i>
 
 </a>
 
-</span>
+<a href="#">
+
+<i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-phone"></i>
+
+</a>
 
 </div>
 
-
-
 </div>
 
+<hr>
 
+<p class="copyright">
 
-
-
-
-
-<!-- RIGHT REQUEST FORM -->
-
-<div class="card glass">
-
-
-<h3>
-Request Service
-</h3>
-
-
-<br>
-
-
-
-<form id="serviceForm">
-
-
-
-<div class="form-group">
-
-<label>
-Name
-</label>
-
-
-<input 
-type="text"
-id="name"
-placeholder="Enter your name"
-required>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-
-<input 
-type="email"
-id="email"
-placeholder="Enter your email"
-required>
-
-
-</div>
-
-
-
-
-
-
-
-<!--
-====================================================
-SERVICE DROPDOWN MODULE
-
-Add new services here:
-
-<option>
-Your New Service
-</option>
-
-====================================================
--->
-
-
-
-<div class="form-group">
-
-
-<label>
-Select Service
-</label>
-
-
-<select id="service"
-required>
-
-
-<option value="">
-Choose Service
-</option>
-
-
-<option>
-Static Website Making & Hosting
-</option>
-
-
-<option>
-Logo Editing
-</option>
-
-
-<option>
-ATS Friendly Resume Creation
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Message
-</label>
-
-
-<textarea 
-id="message"
-placeholder="Describe your requirement"
-required></textarea>
-
-
-</div>
-
-
-
-
-
-
-
-<button 
-class="btn btn-primary"
-type="submit">
-
-Send Request
-
-</button>
-
-
-
-<p class="success"
-id="success">
-
-✅ Request sent successfully
+© 2026 Parthiban. All Rights Reserved.
 
 </p>
-
-
-
-
-</form>
-
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-
-<footer>
-
-
-<p>
-
-© 2026 Parthiban | Cloud & Data Engineering
-
-</p>
-
-
-<p>
-
-👀 Visitors:
-
-<span id="visitor">
-
-0
-
-</span>
-
-
-</p>
-
-
 
 </footer>
 
+<!--================ BACK TO TOP ================-->
 
+<button id="topBtn">
 
+<i class="fa-solid fa-arrow-up"></i>
 
+</button>
 
-
-
-
-<script>
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-
-function toggleMenu(){
-
-document
-.getElementById("navLinks")
-.classList
-.toggle("show");
-
-}
-
-
-
-
-
-
-
-
-/* =====================================================
-   SERVICE REQUEST SYSTEM
-
-   Working:
-   1. Saves request in browser
-   2. Opens email application
-
-   For real server:
-   Connect this with:
-   - Formspree
-   - EmailJS
-   - Backend API
-
-===================================================== */
-
-
-
-document
-.getElementById("serviceForm")
-.addEventListener(
-"submit",
-function(e){
-
-
-e.preventDefault();
-
-
-
-let name =
-document.getElementById("name").value;
-
-
-let email =
-document.getElementById("email").value;
-
-
-
-let service =
-document.getElementById("service").value;
-
-
-
-let message =
-document.getElementById("message").value;
-
-
-
-
-
-
-/* Save request locally */
-
-
-let request = {
-
-name:name,
-
-email:email,
-
-service:service,
-
-message:message,
-
-date:new Date()
-
-};
-
-
-
-let oldData =
-JSON.parse(
-localStorage.getItem("requests")
-)
-|| [];
-
-
-
-oldData.push(request);
-
-
-
-localStorage.setItem(
-"requests",
-JSON.stringify(oldData)
-);
-
-
-
-
-
-
-
-/* Open email */
-
-
-let mailBody =
-
-"Name: "
-+name+
-
-"\nEmail: "
-+email+
-
-"\nService: "
-+service+
-
-"\nMessage: "
-+message;
-
-
-
-window.location.href =
-
-"mailto:parthiban.zy033@gmail.com"
-+
-"?subject=Portfolio Service Request"
-+
-"&body="
-+
-encodeURIComponent(mailBody);
-
-
-
-
-
-
-document
-.getElementById("success")
-.style.display="block";
-
-
-
-this.reset();
-
-
-
-});
-
-
-
-
-
-
-
-
-
-/* =====================================================
-   VISITOR COUNTER
-
-   Browser based counter
-
-   For real global visitors:
-   Use:
-   - Google Analytics
-   - Firebase
-   - Backend Database
-
-===================================================== */
-
-
-let count =
-localStorage.getItem(
-"visitorCount"
-);
-
-
-
-if(count){
-
-count++;
-
-}
-
-else{
-
-count=1;
-
-}
-
-
-
-localStorage.setItem(
-"visitorCount",
-count
-);
-
-
-
-document
-.getElementById("visitor")
-.innerHTML=count;
-
-
-
-
-
-
-</script>
-
-
+<script src="script.js"></script>
 
 </body>
-
 </html>
+
+<script src="script.js"></script>
