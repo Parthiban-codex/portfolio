@@ -1,183 +1,91 @@
 /*Skeuomorphic UI*/
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
-
-
-/*================ ROOT VARIABLES ================*/
+/*ROOT VARIABLES*/
 
 :root{
 
     /* Colors */
-
     --primary:#2563eb;
-
     --primary-dark:#1d4ed8;
-
     --secondary:#38bdf8;
-
     --background:#eef3f9;
-
     --surface:#ffffff;
-
     --surface-soft:#f8fafc;
-
     --text:#172033;
-
     --text-light:#64748b;
-
     --border:#dbe4f0;
-
     --success:#22c55e;
 
-
     /* Skeuomorphic Shadows */
-
     --shadow-out:
     8px 8px 18px rgba(163,177,198,0.45),
     -8px -8px 18px rgba(255,255,255,0.9);
-
-
     --shadow-in:
     inset 5px 5px 12px rgba(163,177,198,0.35),
     inset -5px -5px 12px rgba(255,255,255,0.9);
-
-
     --shadow-card:
     0 20px 40px rgba(15,23,42,0.12);
-
-
+    
     /* Border Radius */
-
     --radius-small:12px;
-
     --radius-medium:22px;
-
     --radius-large:35px;
 
-
     /* Transition */
-
     --transition:
     all .35s ease;
-
-
 }
-
 
 /*================ RESET ================*/
 
-
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
     scroll-behavior:smooth;
-
 }
-
-
-
 html{
-
     overflow-x:hidden;
-
 }
-
-
 
 body{
-
     font-family:"Inter",sans-serif;
-
-    background:
-    linear-gradient(
-        135deg,
-        #edf4ff,
-        #f8fafc
-    );
-
-
+    background:linear-gradient(135deg, #edf4ff, #f8fafc);
     color:var(--text);
-
     line-height:1.7;
-
     overflow-x:hidden;
-
 }
-
-
-
 /*================ HEADINGS ================*/
-
-
-h1,
-h2,
-h3,
-h4{
-
+h1,h2,h3,h4{
     font-family:"Poppins",sans-serif;
-
     color:var(--text);
-
     line-height:1.2;
-
 }
-
-
 
 p{
-
     color:var(--text-light);
-
 }
-
-
 
 a{
-
     text-decoration:none;
-
     color:inherit;
-
 }
-
-
 
 ul{
-
     list-style:none;
-
 }
-
-
 
 img{
-
     max-width:100%;
-
     display:block;
-
 }
 
-
-
-button,
-input,
-textarea,
-select{
-
+button,input,textarea,select{
     font-family:inherit;
-
 }
 
-
-
-/*================ COMMON SECTION ================*/
+/*COMMON SECTION ================*/
 
 
 .section{
