@@ -90,3 +90,30 @@ linkedin.com/in/yourusername
 </a>
 </div>
 </div>
+
+
+footer
+<footer style="text-align: center;">
+<div class="footer-container">
+<div class="footer-logo">
+<h2>Parthiban</h2>
+<div class="footer-social">
+<a href="#">
+<i class="fa-brands fa-github"></i>
+</a>
+<a href="#">
+<i class="fa-brands fa-linkedin"></i>
+</a>
+<a href="#">
+<i class="fa-solid fa-envelope"></i>
+</a>
+<a href="#">
+<i class="fa-solid fa-phone"></i>
+</a>
+</div>
+</div>
+<hr>
+<p class="copyright">
+© 2026 Parthiban. All Rights Reserved.
+</p>
+</footer>
