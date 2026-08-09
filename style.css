@@ -13,6 +13,7 @@
     --success:#6f8f64;
     --shadow:8px 8px 20px rgba(111,92,65,.16),
              -8px -8px 20px rgba(255,255,255,.9);
+}
 
 
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
@@ -519,3 +520,4 @@ footer hr{
     .service-card{padding:28px}
     #topBtn{right:18px;bottom:18px;width:45px;height:45px}
 }
+
